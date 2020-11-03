@@ -1,0 +1,14 @@
+<app-header [accountName]="account.name"></app-header>
+
+<div class="container">
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">{{user.name}}</h5>
+      <p class="card-text">Telefone: {{user.phone}}</p>
+      <p class="card-text">Site: <a target="_blank" href="http://www.{{user.website}}" >{{user.website}}</a> </p>
+      <p class="card-text">Empresa: {{user.company.name}}</p>
+    </div>
+      <div id="map"></div>
+  </div>
+</div>
+

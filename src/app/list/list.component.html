@@ -1,0 +1,26 @@
+<div class="list">
+  <div class="container">
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Nome</th>
+            <th scope="col">Email</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of users" >
+            <td>{{user.username}}</td>
+            <td>{{user.email}}</td>
+            <td><button class="btn btn-light" [routerLink]="['/detail', user.id]" >Detalhes</button></td>
+              <td>
+                  <a *ngIf="user.favorite === false" (click)="adFavorite(user)"><i class="far fa-heart"></i></a>
+                  <a *ngIf="user.favorite === true" (click)="delFavorite(user)"><i class="fas fa-heart"></i></a>
+              </td>
+          </tr>
+        </tbody>
+    </table>
+  </div>
+</div>
+

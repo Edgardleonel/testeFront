@@ -1,0 +1,33 @@
+<div class="login">
+  <div class="container">
+    <form class="form-signin"  [formGroup]="form" (ngSubmit)="login()">
+      <div class="text-center mb-4">
+        <h1 class="display-4">Teste Frontend</h1>
+        <p class="lead">Faça seu login!</p>
+      </div>
+      <div  *ngIf="alert" class="alert alert-warning" role="alert">
+        Opss...Usuário não cadastrado!
+      </div>
+      <div class="form-label-group">
+        <input  email formControlName="email" type="email" id="inputEmail" class="form-control" placeholder="Email" required="" autofocus="">
+        <label for="inputEmail">Email</label>
+        <small class="form-text text-muted" *ngIf="form.controls.email.errors && form.controls.email.touched">
+          Seu email cadastrado.
+        </small>
+      </div>
+
+      <div class="form-label-group">
+        <input formControlName="senha" type="password" id="inputPassword" class="form-control" placeholder="Senha" maxlength="8" required="">
+        <label for="inputPassword">Senha</label>
+        <small class="form-text text-muted" *ngIf="form.controls.senha.errors && form.controls.senha.touched">
+          Sua senha cadastrada com 8 dígitos.
+        </small>
+      </div>
+      <button [disabled]="!form.valid" class="btn btn-lg btn-dark btn-block" type="submit">Entrar</button>
+      <a routerLink="/register">
+        <p class="mt-5 mb-3 text-muted text-center">Não tem cadastro? Cadastre-se agora!</p>
+      </a>
+    </form>
+  </div>
+</div>
+

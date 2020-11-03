@@ -1,0 +1,37 @@
+<div class="register">
+  <div class="container">
+    <form class="form-signin"  [formGroup]="form" (ngSubmit)="register()">
+      <div class="text-center mb-4">
+        <p class="lead">Faça seu Cadastro!</p>
+      </div>
+      <div  *ngIf="alert" class="alert alert-warning" role="alert">
+        Ops...Algo deu errado, tente mais tarde!
+      </div>
+      <div class="form-label-group">
+        <input  formControlName="name"  type="text" id="inputName" class="form-control" placeholder="Nome" required="" autofocus="">
+        <label for="inputName">Nome</label>
+        <small class="form-text text-muted" *ngIf="form.controls.name.errors && form.controls.name.touched">
+          Nome é obrigatório.
+        </small>
+      </div>
+      <div class="form-label-group">
+        <input  email formControlName="email" type="email" id="inputEmail" class="form-control" placeholder="Email" required="" autofocus="">
+        <label for="inputEmail">Email</label>
+        <small class="form-text text-muted" *ngIf="form.controls.email.errors && form.controls.email.touched">
+          Email é obrigatório.
+        </small>
+      </div>
+      <div class="form-label-group">
+        <input formControlName="senha" type="password" id="inputPassword" class="form-control" placeholder="Senha" maxlength="8" required="">
+        <label for="inputPassword">Senha</label>
+        <small class="form-text text-muted" *ngIf="form.controls.senha.errors && form.controls.senha.touched">
+          Senha é obrigatório e minímo de 8 dígitos.
+        </small>
+      </div>
+      <button [disabled]="!form.valid" class="btn btn-lg btn-dark btn-block" type="submit">Cadastrar</button>
+      <a routerLink="/">
+        <p class="mt-5 mb-3 text-muted text-center"><i class="fas fa-arrow-left"></i> Voltar</p>
+      </a>
+    </form>
+  </div>
+</div>
